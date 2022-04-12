@@ -1,0 +1,90 @@
+.Main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.Form {
+    width: 100%;
+}
+
+.Form-div-input {
+    display: flex;
+    width: 100%;
+    box-shadow: 2px 2px 8px rgb(71, 71, 71);
+}
+
+.Form-div-input input {
+    display: flex;
+    border: none;
+    padding: 0 10px;
+    width: 100%;
+    border-radius: 2px 0 0 2px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.Form-div-input button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    background-color: rgb(114, 14, 14);
+    color: white;
+    font-weight: bold;
+}
+
+.List {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 30px;
+}
+
+.ListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    height: 40px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    transition: 0.2s;
+}
+
+.ListItem:hover {
+    box-shadow: 2px 2px 7px rgb(90, 90, 90);
+    background-color: rgb(182, 52, 52);
+    color: white;
+}
+
+.ListItem:hover .ListItem-button {
+    color: white;
+}
+
+.ListItem-tarefa {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.ListItem-button {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+.delete {
+    color: rgb(255, 0, 0);
+}
+
+.edit {
+    color: rgb(35, 157, 228);
+}
