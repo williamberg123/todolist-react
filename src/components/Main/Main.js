@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Main.css';
 
-import { FaPlus, FaEdit, FaWindowClose } from 'react-icons/fa';
+import Form from '../Form/Form';
+import List from '../List/List';
 
 export default class Main extends Component {
     state = {
@@ -52,7 +53,7 @@ export default class Main extends Component {
             return;
         }
 
-        const tarefasSalvas = JSON.parse(localStorage.getItem('tarefas')) || [];
+        const tarefasSalvas = [...tarefas];
         const inputTarefa = document.getElementById('inputTarefa');
 
         if(!novaTarefa){
@@ -99,40 +100,19 @@ export default class Main extends Component {
 
         return (
             <div className="Main">
-                <form onSubmit={this.handleSubmit} className="Form" action="#">
-                    <div className="Form-div-input">
-                        <input
-                            onChange={this.handleChange}
-                            type="text"
-                            value={novaTarefa}
-                            id="inputTarefa"
-                            placeholder="Digite as tarefas aqui"
-                        />
-                        <button type="submit">
-                            <FaPlus />
-                        </button>
-                    </div>
-                </form>
 
-                <ul className="List">
-                    {tarefas.map((item, index) => {
-                        return (
-                        <li key={`tarefa${index + 1}`} className="ListItem">
-                            <div className="ListItem-tarefa">{item}</div>
-                            <div className="ListItem-div-buttons">
-                                <FaEdit
-                                    onClick={(e) => this.handleEdit(e, index)}
-                                    className="ListItem-button edit"
-                                />
-                                <FaWindowClose
-                                    onClick={(e) => this.handleDelete(e, index)}
-                                    className="ListItem-button delete"
-                                />
-                            </div>
-                        </li>);
-                    })
-                    }
-                </ul>
+                <Form
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
+                    novaTarefa={novaTarefa}
+                />
+
+                <List
+                    handleEdit={this.handleEdit}
+                    handleDelete={this.handleDelete}
+                    tarefas={tarefas}
+                />
+
             </div>
         );
     }
