@@ -37,6 +37,8 @@ module.exports = {
     'no-alert': 'off',
     'no-console': 'off',
     'max-len': 'off',
-    'arrow-body-style': 'off'
+    'arrow-body-style': 'off',
+    'function-paren-newline': 'off',
+    'object-curly-newline': 'off'
   },
 };

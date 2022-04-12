@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './List.css';
+import PropTypes from 'prop-types';
 import ListItem from '../ListItem/ListItem';
 
-export default function List(props) {
-    const { tarefas, handleEdit, handleDelete } = props;
+import './List.css';
 
+export default function List({ tarefas, handleEdit, handleDelete }) {
     return (
         <ul className="List">
             {
@@ -22,3 +22,9 @@ export default function List(props) {
         </ul>
     );
 }
+
+List.propTypes = {
+    handleDelete: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired,
+    tarefas: PropTypes.instanceOf(Array).isRequired
+};
