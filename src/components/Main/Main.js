@@ -6,9 +6,25 @@ import { FaPlus, FaEdit, FaWindowClose } from 'react-icons/fa';
 export default class Main extends Component {
     state = {
         novaTarefa: '',
-        tarefas: JSON.parse(localStorage.getItem('tarefas')) || [],
+        tarefas: [],
         index: -1
     };
+
+    componentDidMount() {
+        const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+
+        this.setState({
+            tarefas
+        });
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        const { tarefas } = this.state;
+
+        if(tarefas === prevState.tarefas) return;
+
+        localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    }
 
     handleChange = e => {
         e.target.value = e.target.value.toUpperCase();
@@ -33,8 +49,6 @@ export default class Main extends Component {
                 novaTarefa: '',
                 index: -1
             });
-
-            localStorage.setItem('tarefas', JSON.stringify(tarefasAtualizadas));
             return;
         }
 
@@ -52,7 +66,6 @@ export default class Main extends Component {
         }
 
         tarefasSalvas.push(novaTarefa);
-        localStorage.setItem('tarefas', JSON.stringify(tarefasSalvas));
         inputTarefa.focus();
 
         this.setState({
@@ -65,7 +78,6 @@ export default class Main extends Component {
         const { tarefas } = this.state;
         const tarefasAtualizadas = [...tarefas];
         tarefasAtualizadas.splice(index, 1);
-        localStorage.setItem('tarefas', JSON.stringify(tarefasAtualizadas));
 
         this.setState({
             tarefas: [...tarefasAtualizadas]
@@ -94,6 +106,7 @@ export default class Main extends Component {
                             type="text"
                             value={novaTarefa}
                             id="inputTarefa"
+                            placeholder="Digite as tarefas aqui"
                         />
                         <button type="submit">
                             <FaPlus />
