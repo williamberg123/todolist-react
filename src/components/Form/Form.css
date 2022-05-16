@@ -5,21 +5,24 @@
 .Form-div-input {
     display: flex;
     width: 100%;
-    box-shadow: 2px 2px 8px rgb(71, 71, 71);
 }
 
 .Form-div-input input {
     display: flex;
     border: none;
-    padding: 0 10px;
+    padding: 10px;
     width: 100%;
     border-radius: 2px 0 0 2px;
     font-size: 1rem;
     font-weight: bold;
 }
 
+.Form-div-input input::placeholder {
+	color: rgb(172, 172, 172);
+}
+
 .Form-div-input button {
-    padding: 8px 20px;
+    padding: 8px 25px;
     border: none;
     border-radius: 0 2px 2px 0;
     background-color: rgb(114, 14, 14);

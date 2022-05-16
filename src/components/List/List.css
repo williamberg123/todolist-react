@@ -3,5 +3,11 @@
     display: flex;
     flex-direction: column;
     list-style: none;
-    margin-top: 30px;
+    margin-top: 50px;
+}
+
+@media (max-width: 450px) {
+	.List {
+		margin-top: 20px;
+	}
 }

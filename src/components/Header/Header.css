@@ -7,5 +7,11 @@
 }
 
 .Header h1 {
-    color: rgb(143, 22, 22);
+    color: white;
+}
+
+@media (max-width: 380px) {
+	h1 {
+		font-size: 1.2rem;
+	}
 }

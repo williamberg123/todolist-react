@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
+
 import './Header.css';
 
-export default function Header() {
+function Header() {
     return (
         <header className="Header">
             <h1>LISTA DE TAREFAS</h1>
         </header>
     );
 }
+
+export default memo(Header);

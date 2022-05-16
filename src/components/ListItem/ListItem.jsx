@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
 
 import { FaEdit, FaWindowClose } from 'react-icons/fa';
+
 import './ListItem.css';
 
-export default function ListItem({ handleDelete, handleEdit, tarefa, index }) {
+function ListItem({ handleDelete, handleEdit, tarefa, index }) {
+	console.log('item');
     return (
         <li key={`tarefa${index + 1}`} className="ListItem">
             <div className="ListItem-tarefa">{tarefa}</div>
@@ -29,3 +31,5 @@ ListItem.propTypes = {
     tarefa: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired
 };
+
+export default memo(ListItem);

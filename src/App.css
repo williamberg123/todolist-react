@@ -9,3 +9,13 @@
 button {
     cursor: pointer;
 }
+
+body {
+	background-color: rgb(143, 22, 22);
+}
+
+
+.App {
+	max-width: 1000px;
+	margin: 0 auto;
+}

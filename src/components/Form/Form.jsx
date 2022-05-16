@@ -1,7 +1,8 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
+
 import { FaPlus } from 'react-icons/fa';
+
 import './Form.css';
 
 export default function Form({ handleSubmit, handleChange, novaTarefa }){
@@ -14,6 +15,7 @@ export default function Form({ handleSubmit, handleChange, novaTarefa }){
                     value={novaTarefa}
                     id="inputTarefa"
                     placeholder="Digite as tarefas aqui"
+					autoComplete="off"
                 />
                 <button type="submit">
                     <FaPlus />
