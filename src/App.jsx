@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 import Header from './components/Header/Header';
 import Main from './containers/Main/Main';
@@ -11,6 +11,8 @@ export default function App() {
     const [ newItemList, setNewItemList ] = useState('');
     const [ listItems, setListItems ] = useState([]);
     const [ index, setIndex ] = useState(-1);
+
+	const searchInputRef = useRef(null);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -34,7 +36,6 @@ export default function App() {
         }
 
         const tarefasSalvas = [...listItems];
-        const inputTarefa = document.getElementById('inputTarefa');
 
         if(!novaTarefa){
             alert('Digite uma tarefa válida');
@@ -47,7 +48,7 @@ export default function App() {
         }
 
         tarefasSalvas.push(novaTarefa);
-        inputTarefa.focus();
+        searchInputRef.current.focus();
 
         setNewItemList('');
         setListItems(tarefasSalvas);
@@ -69,7 +70,7 @@ export default function App() {
         setIndex(itemIndex);
         setNewItemList(listItems[itemIndex]);
 
-        document.querySelector('#inputTarefa').focus();
+        searchInputRef.current.focus();
     }, [listItems]);
 
     useEffect(() => {
@@ -95,6 +96,7 @@ export default function App() {
                     handleSubmit={handleSubmit}
                     handleChange={handleChange}
                     novaTarefa={newItemList}
+					searchInputRef={searchInputRef}
                 />
 
                 <List
